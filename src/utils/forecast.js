@@ -17,12 +17,14 @@ const forecast = (lat, long, callback) => {
             const {temperature, precipProbability} = response.body.currently;
             console.log(data);
             if (typeof(data) != "undefined") {
-            const {summary} = response.body.daily.data[0];
+            const {summary, temperatureHigh, temperatureLow} = response.body.daily.data[0];
                 //console.log(`${today.summary} It is currently ${data.temperature} degees F out. There is a ${data.precipProbability}% chance of rain.`);
                 callback(false, {
                     temp: temperature,
                     rainPercent: precipProbability,
-                    summary: summary
+                    summary,
+                    high:temperatureHigh,
+                    low:temperatureLow
                 });
             } else {
                 console.log("Debugging info 002:", response.body);

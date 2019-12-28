@@ -60,7 +60,9 @@ app.get('/weather', (req, res) => {
                 } else {
                     console.log(`Weather for '${obj.place_name}'`);
                     console.log(`${weather.summary} It is currently ${weather.temp} degees F out. There is a ${weather.rainPercent}% chance of rain.`);
-                    const weatherString = `${weather.summary} It is currently ${weather.temp} degees F out. There is a ${weather.rainPercent}% chance of rain.`;
+                    const weatherString = `${weather.summary} It is currently ${weather.temp} degees F out.<br>
+                    High of ${weather.high}. Low of ${weather.low}.<br>
+                    There is a ${weather.rainPercent}% chance of rain.`;
                     res.send({
                         forecast: 'It is snowing',
                         location: obj.place_name,
